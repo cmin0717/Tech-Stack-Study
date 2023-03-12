@@ -1,0 +1,42 @@
+<script>
+    class Student_arr{
+        constructor(){
+            this.arr = []
+        }
+        add (stu){
+            this.arr.push(stu)
+        }
+        printinfo(){
+            // for 에서 i를 그냥쓰면 오류가 난다. let이나 const를 사용하자
+            for (let i of this.arr){
+                console.log(`${i.name} = 총점 : ${i.get_sum()}점, 평균 : ${i.get_avg()}점`)
+            }
+        }
+    }
+
+    class Student{
+        // 생성자 -> 클래스로 객체를 생성할 때 사용하는 함수
+        constructor(name, k, e, m, s){
+            // 속성을 만드는 부분
+            this.name = name
+            this.k = k
+            this.e = e
+            this.m = m
+            this.s = s
+        }
+        // 매서드를 만드는 부분
+        get_sum (){
+            return this.k + this.e + this.m + this.s
+        }
+        get_avg (){
+            return this.get_sum() / 4
+        }
+    }
+
+    const students = new Student_arr()
+    students.add(new Student("A", 54, 62, 73 ,97))
+    students.add(new Student("B", 94, 32, 83 ,67))
+    students.add(new Student("C", 74, 82, 53 ,47))
+    students.add(new Student("D", 44, 72, 83 ,87))
+    students.printinfo()
+</script>

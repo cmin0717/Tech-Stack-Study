@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let count = 0
+        cnt = () => {
+            header.innerText = `클릭 횟수 : ${++count}`
+        }
+
+        header = document.createElement('h1')
+        header.innerText = '클릭 횟수 : 0'
+
+        p = document.createElement('p')
+        p.innerText = '이벤트 연결 상태 : 해제'
+
+        button1 = document.createElement('button')
+        button1.innerText = '연결'
+        button1.addEventListener('click', () => {
+            header.addEventListener('click', cnt)
+            p.innerText = '이벤트 연결 상태 : 연결'
+        })
+        button2 = document.createElement('button')
+        button2.innerText = "해제"
+        button2.addEventListener("click", () => {
+            header.removeEventListener('click', cnt)
+            p.innerText = '이벤트 연결 상태 : 해제'
+        })
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.appendChild(header)
+            document.body.appendChild(button1)
+            document.body.appendChild(button2)
+            document.body.appendChild(p)
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

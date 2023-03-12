@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            header = document.createElement('h2')
+            header.textContent = '안녕하세요'
+
+            // first = document.querySelector('.first')
+            // second = document.querySelector('.second')
+            // toFirst = () => {
+            //     first.appendChild(header)
+            //     setTimeout(toSecond, 1000)
+            // }
+            // toSecond = () => {
+            //     second.appendChild(header)
+            //     setTimeout(toFirst, 1000)
+            // }
+            // toFirst()
+            arr = [document.querySelector('.first'), document.querySelector('.second')]
+            let count = 0
+            fun = () => {
+                arr[count % 2].appendChild(header)
+                count++
+            }
+            setInterval(fun, 1000)
+         })
+
+    </script>
+</head>
+
+<body>
+    <div class="first">
+        <h1>첫 번째 div 태크 내부</h1>
+    </div>
+    <hr>
+    <div class="second">
+        <h1>두 번째 div 태크 내부</h1>
+    </div>
+</body>
+
+</html>
